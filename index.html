@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Slideshow</title>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide">
+            <h2>Buon Compleanno!</h2>
+            <p>Ti auguro una giornata piena di gioia e felicità.</p>
+        </div>
+        <div class="slide">
+            <h2>Auguri di Buon Anno!</h2>
+            <p>Che il nuovo anno ti porti serenità e successi.</p>
+        </div>
+        <div class="slide">
+            <h2>Felice Natale!</h2>
+            <p>Ti auguro un Natale ricco di amore e pace.</p>
+        </div>
+        <!-- Aggiungi ulteriori slide qui -->
+    </div>
+    <button onclick="prevSlide()">&#10094; Precedente</button>
+    <button onclick="nextSlide()">Successivo &#10095;</button>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = (i === index) ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
